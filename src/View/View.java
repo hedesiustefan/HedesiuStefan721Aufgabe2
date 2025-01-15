@@ -24,6 +24,11 @@ public class View {
             System.out.println("3. Delete Product");
             System.out.println("4. List Products");
             System.out.println("5. Get Product by name");
+            System.out.println("6. Add Character");
+            System.out.println("7. Update Character");
+            System.out.println("8. Delete Character");
+            System.out.println("9. List Characters");
+            System.out.println("10. Get Character by id");
 
 
             int choice = scanner.nextInt();
@@ -70,6 +75,49 @@ public class View {
                     System.out.println(controller.getProduct(name).toString());
 
                 }
+                case 6 -> {
+                    System.out.println("Enter character id:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter character name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter origin: ");
+                    String origin = scanner.nextLine();
+                    List<Product> emptyProductList = new ArrayList<>();
+                    Character character = new Character(id, name, origin, emptyProductList);
+                    controller.addCharacter(character);
+                }
+                case 7 -> {
+                    System.out.println("Enter character id:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter character name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter origin: ");
+                    String origin = scanner.nextLine();
+                    List<Product> productList = controller.getCharactersProducts(id);
+                    controller.updateCharacter(id, name, origin, productList);
+                }
+                case 8 -> {
+                    System.out.println("Enter character id:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    controller.deleteCharacter(id);
+                }
+                case 9 -> {
+                    List<Character> characterList = controller.listCharacters();
+                    for (Character character : characterList) {
+                        System.out.println(character.toString());
+                    }
+                }
+                case 10 -> {
+                    System.out.println("Enter character id:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println(controller.getCharacter(id).toString());
+                }
+
+
 
                 default -> System.out.println("Invalid choice. Try again.");
             }

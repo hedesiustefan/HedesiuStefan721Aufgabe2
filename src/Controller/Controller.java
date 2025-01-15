@@ -45,4 +45,47 @@ public class Controller {
         }
         return null;
     }
+
+    public void addCharacter(Character character) {
+        characters.add(character);
+    }
+
+    public void deleteCharacter(Integer characterId) {
+        characters.removeIf(character -> character.getId() == characterId);
+    }
+
+    public void updateCharacter(int id, String newName, String newOrigin, List<Product> newProducts) {
+        for (Character character : characters) {
+            if (character.getId() == id) {
+                character.setName(newName);
+                character.setOrigin(newOrigin);
+                character.setProducts(newProducts);
+                return;
+            }
+        }
+    }
+
+    public List<Character> listCharacters() {
+        return characters;
+    }
+
+    public Character getCharacter(Integer characterId) {
+        for (Character character : characters) {
+            if (character.getId() == characterId) {
+                return character;
+            }
+        }
+        return null;
+    }
+
+    public List<Product> getCharactersProducts(int characterId) {
+        for (Character character : characters) {
+            if (character.getId() == characterId) {
+                return character.getProducts();
+            }
+        }
+        return null;
+    }
+
+
 }
