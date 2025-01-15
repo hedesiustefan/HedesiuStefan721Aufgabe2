@@ -31,6 +31,9 @@ public class View {
             System.out.println("10. Get Character by id");
             System.out.println("11. Filter Characters by origin");
             System.out.println("12. Filter d)");
+            System.out.println("13. sort");
+            System.out.println("14. Add P to C");
+            System.out.println("15. Remove P from C");
 
 
             int choice = scanner.nextInt();
@@ -135,6 +138,34 @@ public class View {
                     System.out.print("Enter sort order (1 for ascending, 0 for descending): ");
                     boolean ascending = scanner.nextInt() == 1;
                     controller.sortCharacterProducts(id, ascending);
+                }
+                case 14 -> {
+                    System.out.println("Enter character ID:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter product name:");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter price: ");
+                    double price = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Enter origin: ");
+                    String origin = scanner.nextLine();
+                    Product newProduct = new Product(name, price, origin);
+                    controller.addProductsToCharactersList(id, newProduct);
+                }
+                case 15 -> {
+                    System.out.println("Enter character ID:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter product name:");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter price: ");
+                    double price = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Enter origin: ");
+                    String origin = scanner.nextLine();
+                    Product newProduct = new Product(name, price, origin);
+                    controller.deleteProductsFromCharactersList(id, newProduct);
                 }
 
 
