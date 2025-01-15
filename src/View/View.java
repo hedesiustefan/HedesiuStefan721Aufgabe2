@@ -128,6 +128,14 @@ public class View {
                     String origin = scanner.nextLine();
                     controller.filterCharactersByProductOrigin(origin);
                 }
+                case 13 -> {
+                    System.out.println("Enter character ID:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter sort order (1 for ascending, 0 for descending): ");
+                    boolean ascending = scanner.nextInt() == 1;
+                    controller.sortCharacterProducts(id, ascending);
+                }
 
 
 

@@ -3,6 +3,8 @@ package Controller;
 import Models.Character;
 import Models.Product;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Controller {
@@ -101,6 +103,23 @@ public class Controller {
                 if (product.getOrigin().equals(origin)) {
                     System.out.println(character.getName());
                 }
+            }
+        }
+    }
+
+    public void sortCharacterProducts(int characterId, boolean ascending) {
+        for (Character character : characters) {
+            if (character.getId() == characterId) {
+                List<Product> products = character.getProducts();
+                products.sort(Comparator.comparingDouble(Product::getPrice));
+                if (!ascending) {
+                    Collections.reverse(products);
+                }
+                System.out.println("Products for " + character.getName() + ":");
+                for (Product product : products) {
+                    System.out.println(product);
+                }
+                return;
             }
         }
     }
