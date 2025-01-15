@@ -95,4 +95,14 @@ public class Controller {
         }
     }
 
+    public void filterCharactersByProductOrigin(String origin) {
+        for (Character character : characters) {
+            for (Product product : character.getProducts()) {
+                if (product.getOrigin().equals(origin)) {
+                    System.out.println(character.getName());
+                }
+            }
+        }
+    }
+
 }

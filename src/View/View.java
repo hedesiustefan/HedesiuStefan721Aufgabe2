@@ -30,6 +30,7 @@ public class View {
             System.out.println("9. List Characters");
             System.out.println("10. Get Character by id");
             System.out.println("11. Filter Characters by origin");
+            System.out.println("12. Filter d)");
 
 
             int choice = scanner.nextInt();
@@ -121,6 +122,11 @@ public class View {
                     System.out.println("Enter origin:");
                     String origin = scanner.nextLine();
                     controller.charactersByOrigin(origin);
+                }
+                case 12 -> {
+                    System.out.println("Enter origin:");
+                    String origin = scanner.nextLine();
+                    controller.filterCharactersByProductOrigin(origin);
                 }
 
 
