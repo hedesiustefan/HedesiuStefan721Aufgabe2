@@ -87,5 +87,12 @@ public class Controller {
         return null;
     }
 
+    public void charactersByOrigin(String origin) {
+        for (Character character : characters) {
+            if (character.getOrigin().equals(origin)) {
+                System.out.println(character.getName());
+            }
+        }
+    }
 
 }

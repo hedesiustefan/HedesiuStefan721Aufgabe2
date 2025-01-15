@@ -29,6 +29,7 @@ public class View {
             System.out.println("8. Delete Character");
             System.out.println("9. List Characters");
             System.out.println("10. Get Character by id");
+            System.out.println("11. Filter Characters by origin");
 
 
             int choice = scanner.nextInt();
@@ -115,6 +116,11 @@ public class View {
                     int id = scanner.nextInt();
                     scanner.nextLine();
                     System.out.println(controller.getCharacter(id).toString());
+                }
+                case 11 -> {
+                    System.out.println("Enter origin:");
+                    String origin = scanner.nextLine();
+                    controller.charactersByOrigin(origin);
                 }
 
 
